@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EDUPLAN C-3 - Plataforma de planificación pedagógica para docentes." />
+  <title>EDUPLAN C-3 | Docentes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">C3</div>
+        <div>
+          <div class="brand-name">EDUPLAN C-3</div>
+          <div class="brand-sub">Docentes</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-section="inicio">⌂ <span>Inicio</span></button>
+        <button class="nav-item" data-section="planificacion">▣ <span>Planificación</span></button>
+        <button class="nav-item" data-section="sesiones">◫ <span>Sesiones</span></button>
+        <button class="nav-item" data-section="evaluacion">✓ <span>Evaluación</span></button>
+        <button class="nav-item" data-section="recursos">✦ <span>Recursos</span></button>
+        <button class="nav-item" data-section="biblioteca">▤ <span>Mi biblioteca</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-card">
+          <strong>EDUPLAN IA</strong>
+          <span>Crea materiales pedagógicos en segundos.</span>
+          <button onclick="openGenerator()">Crear con IA</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn">☰</button>
+        <div class="breadcrumb">EDUPLAN C-3 / <strong id="currentPage">Inicio</strong></div>
+        <div class="top-actions">
+          <button class="icon-btn" title="Notificaciones">🔔</button>
+          <div class="avatar">DC</div>
+        </div>
+      </header>
+
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div class="modal" id="generatorModal" aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-head">
+        <div>
+          <span class="eyebrow">EDUPLAN IA</span>
+          <h2>Generador pedagógico</h2>
+        </div>
+        <button class="close-btn" onclick="closeGenerator()">×</button>
+      </div>
+
+      <form id="generatorForm">
+        <div class="form-grid">
+          <label>Nivel
+            <select id="nivel">
+              <option>Inicial</option>
+              <option selected>Primaria</option>
+              <option>Secundaria</option>
+            </select>
+          </label>
+          <label>Grado
+            <select id="grado">
+              <option>1.º</option><option>2.º</option><option>3.º</option>
+              <option>4.º</option><option>5.º</option><option selected>6.º</option>
+            </select>
+          </label>
+          <label>Área
+            <select id="area">
+              <option>Matemática</option>
+              <option>Comunicación</option>
+              <option>Ciencia y Tecnología</option>
+              <option>Personal Social</option>
+              <option>Inglés</option>
+              <option>Educación Física</option>
+              <option selected>Arte y Cultura</option>
+              <option>Educación Religiosa</option>
+            </select>
+          </label>
+          <label>Tipo de recurso
+            <select id="tipo">
+              <option>Sesión de aprendizaje</option>
+              <option>Unidad de aprendizaje</option>
+              <option>Actividad</option>
+              <option>Ficha de aprendizaje</option>
+              <option>Rúbrica</option>
+              <option>Lista de cotejo</option>
+              <option>Cuestionario</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="full">Tema
+          <input id="tema" required placeholder="Ej.: Exploramos los colores de nuestra comunidad" />
+        </label>
+        <label class="full">Indicaciones adicionales
+          <textarea id="indicaciones" rows="4" placeholder="Contexto, duración, producto, características de los estudiantes..."></textarea>
+        </label>
+        <button class="primary-btn full-btn" type="submit">✨ Generar recurso</button>
+      </form>
+
+      <div id="generatorResult" class="result hidden"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
